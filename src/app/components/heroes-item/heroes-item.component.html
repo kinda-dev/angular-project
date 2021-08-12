@@ -1,4 +1,7 @@
-<div class="hero-item-container">
-    <img class="hero-item-img" [src]="imgSrc" alt="Image of hero.name">
-    <p class="hero-item-name">{{hero.name}}</p>
+<div (click)="showDescription()" class="hero-item-container">
+    <div class="hero-name-item-container">
+        <img class="hero-item-img" [src]="imgSrc" alt="Image of hero.name">
+        <p class="hero-item-name">{{hero.name}}</p>
+    </div>
+    <div *ngIf="show" class="hero-item-description">{{heroDescription}}</div>
 </div>
