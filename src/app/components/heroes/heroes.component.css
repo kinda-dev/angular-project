@@ -1,3 +1,9 @@
 #heroes-container {
   overflow-y: scroll;
 }
+
+#buttons-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+}

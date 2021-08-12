@@ -9,26 +9,35 @@ import { HeroService } from '../../services/hero.service';
 export class HeroesComponent implements OnInit {
 
   heroes: any = [];
+  showPrev: boolean = false;
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.heroService.getHeroes().subscribe((payload) => {
       this.heroes = payload.data.results;
+      console.log("offset", payload.data.offset, "count", payload.data.count)
+
     });
   }
 
-  getNextHeroes() {
+  getNextHeroes(): void {
     console.log("CLICKED")
     this.heroService.getHeroes(25).subscribe((payload) => {
       this.heroes = payload.data.results;
+      if (payload.data.offset) this.showPrev = true;
+      console.log("offset", payload.data.offset, "count", payload.data.count)
     });
   }
 
-  getPreviousHeroes() {
+  getPreviousHeroes(): void {
     console.log("CLICKED")
     this.heroService.getHeroes(-25).subscribe((payload) => {
       this.heroes = payload.data.results;
+      if (!payload.data.offset) this.showPrev = false;
+
+      console.log("offset", payload.data.offset, "count", payload.data.count)
+
     });
   }
 }

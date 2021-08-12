@@ -2,7 +2,6 @@
     <app-heroes-item *ngFor="let hero of heroes" [hero]="hero"></app-heroes-item>
 </div>
 <div id="buttons-container">
-    <button (click)="getPreviousHeroes()">Prev</button>
+    <button *ngIf="showPrev" (click)="getPreviousHeroes()">Prev</button>
     <button (click)="getNextHeroes()">Next</button>
-    <!-- <button (click)="getNextHeroes()">Next</button> -->
 </div>
