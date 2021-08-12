@@ -21,10 +21,10 @@ export class HeroService {
   offset = 0;
   private apiUrl = `https://gateway.marvel.com/v1/public/characters?limit=${this.entriesLimit}&offset=${this.offset}&ts=${this.timeStamp}&apikey=${this.apiKey}&hash=${this.md5hash}`;
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   getHeroes(): Observable<any> {
-    const test = of(console.log(this.apiUrl));
-    return test;
+    console.log(this.apiUrl);
+    return this.http.get(this.apiUrl);
   }
 }
