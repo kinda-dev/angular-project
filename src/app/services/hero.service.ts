@@ -18,13 +18,13 @@ export class HeroService {
   private privateKey = config.PRIVATE_KEY;
   private md5hash = this.md5.appendStr(this.timeStamp+this.privateKey+this.apiKey).end();
   private entriesLimit = 25;
+  private apiUrl = `https://gateway.marvel.com/v1/public/characters?limit=${this.entriesLimit}&ts=${this.timeStamp}&apikey=${this.apiKey}&hash=${this.md5hash}`;
   offset = 0;
-  private apiUrl = `https://gateway.marvel.com/v1/public/characters?limit=${this.entriesLimit}&offset=${this.offset}&ts=${this.timeStamp}&apikey=${this.apiKey}&hash=${this.md5hash}`;
-
   constructor(private http:HttpClient) { }
 
-  getHeroes(): Observable<any> {
+  getHeroes(offset: number = 0): Observable<any> {
     console.log(this.apiUrl);
-    return this.http.get(this.apiUrl);
+    this.offset += offset;
+    return this.http.get(this.apiUrl + "&offset=" + this.offset);
   }
 }

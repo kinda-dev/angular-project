@@ -8,12 +8,12 @@ app-header {
 
 app-heroes {
   height: 80vh;
-  width: 35vw;
+  width: 20vw;
   display: flex;
   /* justify-content: center; */
   /* align-items: center; */
   flex-direction: column;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   object-fit: contain;
   border: 1px solid black;
 }

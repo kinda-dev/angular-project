@@ -9,3 +9,8 @@
 .hero-item-img {
   border-radius: 50%;
 }
+
+.hero-item-container:hover {
+  background-color: rgba(218, 165, 32, 0.747);
+  transition: ease-in-out 0.5s;
+}
