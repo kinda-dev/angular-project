@@ -1,26 +1,13 @@
 app-header {
   height: 20vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
-}
-
-app-body {
-  height: 80vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid black;
 }
 
 app-footer {
   height: 20vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid green;
 }
