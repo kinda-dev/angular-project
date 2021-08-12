@@ -8,11 +8,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeroesItemComponent } from './components/heroes-item/heroes-item.component';
+import { AboutComponent } from './pages/about/about.component';
 
 const appRoutes: Routes = [
-  // {path: '', component: HeaderComponent},
-  {path: '', component: HeroesComponent}
-  // {path: '', component: FooterComponent}
+  {path: '', component: HeroesComponent},
+  {path: 'about', component: AboutComponent},
+  {path: '**', redirectTo: ''}
 ]
 
 @NgModule({
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     HeroesComponent,
     FooterComponent,
-    HeroesItemComponent
+    HeroesItemComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -16,28 +16,20 @@ export class HeroesComponent implements OnInit {
   ngOnInit(): void {
     this.heroService.getHeroes().subscribe((payload) => {
       this.heroes = payload.data.results;
-      console.log("offset", payload.data.offset, "count", payload.data.count)
-
     });
   }
 
-  getNextHeroes(): void {
-    console.log("CLICKED")
-    this.heroService.getHeroes(50).subscribe((payload) => {
+  getOtherHeroes(action: string): void {
+    let elementsToGet: number = 50;
+
+    if (action === 'Prev') {
+      elementsToGet = -50;
+    }
+
+    this.heroService.getHeroes(elementsToGet).subscribe((payload) => {
       this.heroes = payload.data.results;
       if (payload.data.offset) this.showPrev = true;
-      console.log("offset", payload.data.offset, "count", payload.data.count)
     });
   }
 
-  getPreviousHeroes(): void {
-    console.log("CLICKED")
-    this.heroService.getHeroes(-50).subscribe((payload) => {
-      this.heroes = payload.data.results;
-      if (!payload.data.offset) this.showPrev = false;
-
-      console.log("offset", payload.data.offset, "count", payload.data.count)
-
-    });
-  }
 }

@@ -23,7 +23,6 @@ export class HeroService {
   constructor(private http:HttpClient) { }
 
   getHeroes(offset: number = 0): Observable<any> {
-    console.log(this.apiUrl);
     this.offset += offset;
     return this.http.get(this.apiUrl + "&offset=" + this.offset);
   }
