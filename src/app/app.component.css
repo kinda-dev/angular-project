@@ -1,24 +1,25 @@
 app-header {
   height: 20vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid red;
 }
 
-app-body {
+app-heroes {
   height: 80vh;
-  width: 100vw;
+  width: 35vw;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-direction: column;
+  overflow-y: scroll;
+  object-fit: contain;
   border: 1px solid black;
 }
 
 app-footer {
   height: 20vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;

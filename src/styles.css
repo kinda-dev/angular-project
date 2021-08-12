@@ -138,10 +138,10 @@ table {
   -webkit-user-drag: none;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 0;
   background: transparent;
-} */
+}
 
 body {
   height: 100vh;
