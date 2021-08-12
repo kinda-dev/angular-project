@@ -17,7 +17,7 @@ export class HeroService {
   private apiKey = config.PUBLIC_KEY;
   private privateKey = config.PRIVATE_KEY;
   private md5hash = this.md5.appendStr(this.timeStamp+this.privateKey+this.apiKey).end();
-  private entriesLimit = 25;
+  private entriesLimit = 50;
   private apiUrl = `https://gateway.marvel.com/v1/public/characters?limit=${this.entriesLimit}&ts=${this.timeStamp}&apikey=${this.apiKey}&hash=${this.md5hash}`;
   offset = 0;
   constructor(private http:HttpClient) { }

@@ -4,7 +4,13 @@
   padding: 5px;
   justify-content: space-between;
   align-items: center;
+  margin-left: 0.5em;
   cursor: pointer;
+}
+
+.hero-item-container:hover {
+  background-color: rgba(218, 165, 32, 0.747);
+  transition: ease-in-out 0.5s;
 }
 
 .hero-item-img {
@@ -12,7 +18,11 @@
   cursor: pointer;
 }
 
-.hero-item-container:hover {
-  background-color: rgba(218, 165, 32, 0.747);
-  transition: ease-in-out 0.5s;
+.hero-item-name,
+.hero-item-description {
+  cursor: pointer;
+}
+
+.hero-item-description {
+  padding: 5px;
 }

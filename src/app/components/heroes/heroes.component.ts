@@ -23,7 +23,7 @@ export class HeroesComponent implements OnInit {
 
   getNextHeroes(): void {
     console.log("CLICKED")
-    this.heroService.getHeroes(25).subscribe((payload) => {
+    this.heroService.getHeroes(50).subscribe((payload) => {
       this.heroes = payload.data.results;
       if (payload.data.offset) this.showPrev = true;
       console.log("offset", payload.data.offset, "count", payload.data.count)
@@ -32,7 +32,7 @@ export class HeroesComponent implements OnInit {
 
   getPreviousHeroes(): void {
     console.log("CLICKED")
-    this.heroService.getHeroes(-25).subscribe((payload) => {
+    this.heroService.getHeroes(-50).subscribe((payload) => {
       this.heroes = payload.data.results;
       if (!payload.data.offset) this.showPrev = false;
 
