@@ -3,19 +3,16 @@ app-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 app-heroes {
   height: 80vh;
   width: 20vw;
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
   flex-direction: column;
-  /* overflow-y: scroll; */
   object-fit: contain;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 app-footer {
@@ -23,5 +20,5 @@ app-footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
