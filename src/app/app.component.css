@@ -3,16 +3,6 @@ app-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid red; */
-}
-
-app-heroes {
-  height: 80vh;
-  width: 20vw;
-  display: flex;
-  flex-direction: column;
-  object-fit: contain;
-  /* border: 1px solid black; */
 }
 
 app-footer {
@@ -20,5 +10,4 @@ app-footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid green; */
 }
