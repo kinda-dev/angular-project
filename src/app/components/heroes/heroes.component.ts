@@ -24,11 +24,15 @@ export class HeroesComponent implements OnInit {
 
     if (action === 'Prev') {
       elementsToGet = -50;
-    }
+    } 
 
     this.heroService.getHeroes(elementsToGet).subscribe((payload) => {
       this.heroes = payload.data.results;
-      if (payload.data.offset) this.showPrev = true;
+      if (payload.data.offset > 0) {
+        this.showPrev = true;
+      } else {
+        this.showPrev = false;
+      }
     });
   }
 
