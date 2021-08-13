@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../../services/hero.service';
 
+import { HEROOBJ } from 'src/app/interfaces/Hero';
+
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
@@ -8,7 +10,7 @@ import { HeroService } from '../../services/hero.service';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes: any = [];
+  heroes: HEROOBJ[] = [];
   showPrev: boolean = false;
 
   constructor(private heroService: HeroService) { }

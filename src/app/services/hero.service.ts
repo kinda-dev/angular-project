@@ -24,6 +24,7 @@ export class HeroService {
 
   getHeroes(offset: number = 0): Observable<any> {
     this.offset += offset;
+    console.log('api endpoint:', this.apiUrl + "&offset=" + this.offset)
     return this.http.get(this.apiUrl + "&offset=" + this.offset);
   }
 }
