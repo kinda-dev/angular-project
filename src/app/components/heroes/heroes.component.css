@@ -1,3 +1,14 @@
+.loaderContainer {
+  height: 80vh;
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 5px solid rgb(42, 117, 179);
+  background-color: rgba(218, 165, 32, 0.747);
+}
+
 #heroes-container {
   height: 80vh;
   width: 20vw;
@@ -29,4 +40,23 @@ button {
   color: rgb(42, 117, 179);
   border-radius: 3px;
   cursor: pointer;
+}
+
+/* spinnin wheel credit https://www.w3schools.com/howto/howto_css_loader.asp */
+#loader {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid rgb(42, 117, 179); /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

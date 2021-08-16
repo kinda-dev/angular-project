@@ -12,16 +12,19 @@ export class HeroesComponent implements OnInit {
 
   heroes: HEROOBJ[] = [];
   showPrev: boolean = false;
+  isFetching: boolean = true;
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.heroService.getHeroes().subscribe((payload) => {
+      this.isFetching = false;
       this.heroes = payload.data.results;
     });
   }
 
   getOtherHeroes(action: string): void {
+    this.isFetching = true;
     let elementsToGet: number = 50;
 
     if (action === 'Prev') {
@@ -29,6 +32,7 @@ export class HeroesComponent implements OnInit {
     } 
 
     this.heroService.getHeroes(elementsToGet).subscribe((payload) => {
+      this.isFetching = false;
       this.heroes = payload.data.results;
       if (payload.data.offset > 0) {
         this.showPrev = true;

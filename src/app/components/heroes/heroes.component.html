@@ -1,4 +1,7 @@
-<div id="heroes-container">
+<div *ngIf="isFetching" class="loaderContainer">
+    <div id="loader"></div>
+</div>
+<div *ngIf="!isFetching" id="heroes-container">
     <app-heroes-item *ngFor="let hero of heroes" [hero]="hero"></app-heroes-item>
 </div>
 <div id="buttons-container">
