@@ -4,6 +4,10 @@ import { Observable, of } from 'rxjs';
 
 import {Md5} from 'ts-md5/dist/md5';
 import { config } from '../../config';
+// below import to dipatch action from the store
+import { Store } from '@ngrx/store';
+import { GetHeroes } from '../store/actions/heroes.actions';
+import { IAppState } from '../store/state/app.state';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +24,16 @@ export class HeroService {
   private entriesLimit = 50;
   private apiUrl = `https://gateway.marvel.com/v1/public/characters?limit=${this.entriesLimit}&ts=${this.timeStamp}&apikey=${this.apiKey}&hash=${this.md5hash}`;
   offset = 0;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,
+    private _store: Store<IAppState>) { }
 
   getHeroes(offset: number = 0): Observable<any> {
     this.offset += offset;
     console.log('api endpoint:', this.apiUrl + "&offset=" + this.offset)
     return this.http.get(this.apiUrl + "&offset=" + this.offset);
+  }
+
+  getHeroes2() {
+    this._store.dispatch(new GetHeroes());
   }
 }

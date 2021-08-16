@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -10,8 +12,8 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeroesItemComponent } from './components/heroes-item/heroes-item.component';
 import { AboutComponent } from './pages/about/about.component';
-import { heroesReducer } from './store/reducers/heroes.reducer';
-
+import { appReducers } from './store/store.module';
+import { HeroEffetcs } from './store/effects/hero.effects';
 const appRoutes: Routes = [
   {path: '', component: HeroesComponent},
   {path: 'about', component: AboutComponent},
@@ -31,8 +33,9 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     // note to self: chek the line below !!!
-    // StoreModule.forRoot({heroes: heroesReducer}),
-    StoreModule.forRoot(heroesReducer),
+    StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot([HeroEffetcs]),
+    StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

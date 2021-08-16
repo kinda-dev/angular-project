@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../../services/hero.service';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
 
 import { HEROOBJ } from 'src/app/interfaces/Hero';
+import { IAppState } from 'src/app/store/state/app.state';
+import { selectHeroesList } from 'src/app/store/selectors/hero.selector';
+import { GetHeroes } from 'src/app/store/actions/heroes.actions';
 
 @Component({
   selector: 'app-heroes',
@@ -15,12 +17,19 @@ export class HeroesComponent implements OnInit {
   heroes: HEROOBJ[] = [];
   showPrev: boolean = false;
   isFetching: boolean = true;
-
+  heroes$ = this._store.pipe(select(selectHeroesList));
+  
   constructor(
     private heroService: HeroService,
-    private store: Store<{heroes: HEROOBJ}>) {}
+    private store: Store<{heroes: HEROOBJ}>,
+    // below is correct? 
+    private _store: Store<IAppState>
+    ) {}
 
   ngOnInit(): void {
+    // below for the store
+    this._store.dispatch(new GetHeroes());
+    console.log('HEROES:', this.heroes$)
     // this.test = this.store.select('heroes')
     console.log('STORE', this.store.select('heroes'))
     this.heroService.getHeroes().subscribe((payload) => {
@@ -46,6 +55,10 @@ export class HeroesComponent implements OnInit {
         this.showPrev = false;
       }
     });
+  }
+
+  testFunc(): void {
+    this.heroService.getHeroes2();
   }
 
 }
