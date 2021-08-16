@@ -31,6 +31,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     // note to self: chek the line below !!!
+    // StoreModule.forRoot({heroes: heroesReducer}),
     StoreModule.forRoot(heroesReducer),
     RouterModule.forRoot(appRoutes)
   ],

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../../services/hero.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 import { HEROOBJ } from 'src/app/interfaces/Hero';
 
@@ -14,9 +16,13 @@ export class HeroesComponent implements OnInit {
   showPrev: boolean = false;
   isFetching: boolean = true;
 
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private heroService: HeroService,
+    private store: Store<{heroes: HEROOBJ}>) {}
 
   ngOnInit(): void {
+    // this.test = this.store.select('heroes')
+    console.log('STORE', this.store.select('heroes'))
     this.heroService.getHeroes().subscribe((payload) => {
       this.isFetching = false;
       this.heroes = payload.data.results;

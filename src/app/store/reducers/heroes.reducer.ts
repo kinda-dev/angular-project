@@ -1,21 +1,17 @@
-import { HEROOBJ } from "src/app/interfaces/Hero";
-import { HeroActions, HeroActionTypes} from "../actions/heroes.actions";
-import { Action } from '@ngrx/store'
+// import { HEROOBJ } from "src/app/interfaces/Hero";
+import { initialHeroesState } from "../state/heroes.state"; 
+import { EHeroesActions } from "../actions/heroes.actions";
+import { HeroActions } from "../actions/heroes.actions";
 
-let heroes: HEROOBJ[] = [];
-
-const oldState = {
-    heroes: heroes
-};
 
 export function heroesReducer(
-    state = oldState, 
+    state = initialHeroesState, 
     action: HeroActions
     ) {
     Object.freeze(state);
 
     switch(action.type) {
-        case HeroActionTypes.RECEIVE_HEROES:
+        case EHeroesActions.GetHeroesSuccess:
             return {
                 ...state,
                 heroes: action.payload
