@@ -20,3 +20,5 @@ export function heroesReducer(
             return state;
     }
 }
+
+// the heroes return is for testing purposes

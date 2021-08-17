@@ -15,6 +15,7 @@ export class HeroesItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('HEROOOOO',this.hero)
     this.imgSrc = `${this.hero.thumbnail.path}/standard_medium.${this.hero.thumbnail.extension}`;
     if (this.hero.description !== "") {
       this.heroDescription = this.hero.description;

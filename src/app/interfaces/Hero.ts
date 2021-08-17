@@ -16,21 +16,21 @@ interface Collection {
     returned: number
 }
 
-interface Result {
-    id: number,
-    name: string,
+export interface Result {
+    id?: number,
+    name?: string,
     description?: string,
     modified: string,
     thumbnail: {
         path: string,
         extension: string
     },
-    resourceURI: string,
-    comics: Collection,
-    series: Collection,
-    stories: Collection,
-    events: Collection,
-    urls: Url[]
+    resourceURI?: string,
+    comics?: Collection,
+    series?: Collection,
+    stories?: Collection,
+    events?: Collection,
+    urls?: Url[]
 }
 
 export interface HEROOBJ {
