@@ -30,6 +30,7 @@ export class HeroesComponent implements OnInit {
     // below for the store
     this._store.dispatch(new GetHeroes());
     console.log('HEROES:', this.heroes$)
+    console.log('STORE!!!!', this._store)
     // this.test = this.store.select('heroes')
     console.log('STORE', this.store.select('heroes'))
     this.heroService.getHeroes().subscribe((payload) => {

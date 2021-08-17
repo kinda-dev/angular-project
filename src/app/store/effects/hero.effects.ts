@@ -29,7 +29,7 @@ export class HeroEffetcs {
     private md5hash = this.md5.appendStr(this.timeStamp+this.privateKey+this.apiKey).end();
     private entriesLimit = 50;
     private apiUrl = `https://gateway.marvel.com/v1/public/characters?limit=${this.entriesLimit}&ts=${this.timeStamp}&apikey=${this.apiKey}&hash=${this.md5hash}`;
-    offset = 25;
+    offset = 75;
     //------------------------------------------------
     getHero$ = createEffect(() => this._actions$.pipe(
         ofType<GetHeroes>(EHeroesActions.GetHeroes),
