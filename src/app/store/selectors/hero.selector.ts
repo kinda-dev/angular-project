@@ -1,12 +1,26 @@
-import { createSelector } from "@ngrx/store";
+import { createSelector, createFeatureSelector } from "@ngrx/store";
 
 import { IAppState } from "../state/app.state";
 import { HEROOBJ, Result } from "src/app/interfaces/Hero";
 import { initialHeroesState } from "../state/heroes.state";
 
-const selectHeroes = ( state: IAppState ) => state.heroes;
+export const selectHeroes = ( state: IAppState ) => state.entities;
 
 export const selectHeroesList = createSelector(
     selectHeroes,
-    (state: HEROOBJ) => state.data?.results
+    (state: HEROOBJ) => { 
+        // debugger
+        console.log("selector", state)
+        state.data?.results }
 );
+
+export const selectHeroes2 = createFeatureSelector<IAppState, Result[]>('entities')
+
+export const selectHeroesList2 = createSelector (
+    selectHeroes2,
+    (state: Result[]) => { 
+        // debugger
+        state
+        console.log("selector", state)
+      }
+)

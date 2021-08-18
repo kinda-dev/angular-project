@@ -20,8 +20,8 @@ export interface Result {
     id?: number,
     name?: string,
     description?: string,
-    modified: string,
-    thumbnail: {
+    modified?: string,
+    thumbnail?: {
         path: string,
         extension: string
     },

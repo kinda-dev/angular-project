@@ -61,7 +61,7 @@ export class HeroEffetcs {
         withLatestFrom(this._store.pipe(select(selectHeroesList))),
         // switchMap(() => this._heroService.getHeroes()),
         switchMap(() => this.http.get(this.apiUrl + "&offset=" + this.offset)),
-        switchMap((heroHttp: HEROOBJ) => of(new GetHeroesSuccess(heroHttp)))
+        switchMap((heroHttp: any) => of(new GetHeroesSuccess(heroHttp)))
     ))
     constructor(
         private _heroService: HeroService,
