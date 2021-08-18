@@ -5,11 +5,11 @@ import { initialHeroesState } from './heroes.state';
 
 export interface IAppState {
     router?: RouterReducerState;
-    entities: HEROOBJ;
+    heros: HEROOBJ;
 }
 
 export const initialAppState: IAppState = {
-    entities: initialHeroesState
+    heros: initialHeroesState
 }
 
 export function getInitialSate(): IAppState {

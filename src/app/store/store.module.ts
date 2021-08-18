@@ -6,5 +6,5 @@ import { heroesReducer } from "./reducers/heroes.reducer";
 
 export const appReducers: ActionReducerMap<IAppState, any> = {
     router: routerReducer,
-    entities: heroesReducer
+    heros: heroesReducer
 };

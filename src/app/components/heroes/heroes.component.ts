@@ -4,7 +4,7 @@ import { Store, select, State } from '@ngrx/store';
 
 import { HEROOBJ, Result } from 'src/app/interfaces/Hero';
 import { IAppState } from 'src/app/store/state/app.state';
-import { selectHeroesList } from 'src/app/store/selectors/hero.selector';
+import { selectHeroes } from 'src/app/store/selectors/hero.selector';
 import { GetHeroes } from 'src/app/store/actions/heroes.actions';
 
 @Component({
@@ -17,7 +17,7 @@ export class HeroesComponent implements OnInit {
   heroes: HEROOBJ[] = [];
   showPrev: boolean = false;
   isFetching: boolean = true;
-  heroes$ = this._store.pipe(select(selectHeroesList));
+  heroes$ = this._store.pipe(select(selectHeroes));
   testHeroes$ :HEROOBJ[] | any = []
 
   
