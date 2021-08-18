@@ -6,6 +6,8 @@ import { HEROOBJ, Result } from 'src/app/interfaces/Hero';
 import { IAppState } from 'src/app/store/state/app.state';
 import { selectHeroes } from 'src/app/store/selectors/hero.selector';
 import { GetHeroes } from 'src/app/store/actions/heroes.actions';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-heroes',
@@ -17,7 +19,11 @@ export class HeroesComponent implements OnInit {
   heroes: HEROOBJ[] = [];
   showPrev: boolean = false;
   isFetching: boolean = true;
-  heroes$ = this._store.pipe(select(selectHeroes));
+  heroes$: Observable<any> = this.heroService.heroes$.pipe(
+    tap(data => console.log(data))
+  );
+
+  
   testHeroes$ :HEROOBJ[] | any = []
 
   

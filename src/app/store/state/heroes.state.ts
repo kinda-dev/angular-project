@@ -9,7 +9,7 @@ export interface HerosState {
     attributionText: '',
     attributionHTML: '',
     etag: '',
-    heros: {
+    heroes: {
         offset: 0,
         limit: 0,
         total: 0,

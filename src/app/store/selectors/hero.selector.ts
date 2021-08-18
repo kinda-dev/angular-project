@@ -6,7 +6,10 @@ import { HerosState } from "../state/heroes.state";
 
 /// export const selectHeroes = ( state: IAppState ) => state.entities;
 export const selectHeroesState = createFeatureSelector<HerosState>('heros');
-export const selectHeroesFromState = (state: HerosState) => state.heros;
+export const selectHeroesFromState = (state: HerosState) => {
+    console.log(state.heroes);
+    return state.heroes
+};
 // export const selectHeroesList2 = createSelector(
 //     selectHeroes,
 //     (state: HEROOBJ) => { 
@@ -19,7 +22,7 @@ export const selectHeroesFromState = (state: HerosState) => state.heros;
 export const selectHeroes = createSelector(
     selectHeroesState,
     selectHeroesFromState
-)
+);
 
 
 

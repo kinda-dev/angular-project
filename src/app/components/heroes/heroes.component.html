@@ -13,7 +13,7 @@
     <div id="loader"></div>
 </div>
 <div *ngIf="!isFetching" id="heroes-container">
-    <app-heroes-item *ngFor="let hero of heroes" [hero]="hero"></app-heroes-item>
+    <app-heroes-item *ngFor="let hero of (heroes$ | async)" [hero]="hero"></app-heroes-item>
 </div>
 <div id="buttons-container">
     <button *ngIf="showPrev" (click)="getOtherHeroes('Prev')">Prev</button>
