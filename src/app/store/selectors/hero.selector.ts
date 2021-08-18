@@ -20,7 +20,16 @@ export const selectHeroesList2 = createSelector (
     selectHeroes2,
     (state: Result[]) => { 
         // debugger
-        state
         console.log("selector", state)
+        state
       }
 )
+
+// export const selectHeroesList2 = createSelector (
+//     selectHeroesList,
+//     (state: Result[]) => { 
+//         // debugger
+//         state
+//         console.log("selector", state)
+//       }
+// )
