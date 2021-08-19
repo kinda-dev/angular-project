@@ -17,14 +17,10 @@ import { selectHeroes } from '../store/selectors/hero.selector';
 
 export class HeroService {
 
-
   heroes$: Observable<any> = this._store.pipe(
       select(selectHeroes)
   );
 
-
-
-  
   private md5 = new Md5();
   private timeStamp = Date.now().toString();
   private apiKey = config.PUBLIC_KEY;
@@ -35,12 +31,6 @@ export class HeroService {
   offset = 0;
   constructor(private http:HttpClient,
     private _store: Store<IAppState>) { }
-
-  getHeroes(offset: number = 0): Observable<any> {
-    this.offset += offset;
-    console.log('api endpoint:', this.apiUrl + "&offset=" + this.offset)
-    return this.http.get(this.apiUrl + "&offset=" + this.offset);
-  }
 
   getHeroes2() {
     this._store.dispatch(new GetHeroes());

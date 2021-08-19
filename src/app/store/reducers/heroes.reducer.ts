@@ -1,4 +1,3 @@
-// import { HEROOBJ } from "src/app/interfaces/Hero";
 import { initialHeroesState } from "../state/heroes.state"; 
 import { EHeroesActions } from "../actions/heroes.actions";
 import { HeroActions } from "../actions/heroes.actions";
@@ -20,5 +19,3 @@ export function heroesReducer(
             return state;
     }
 }
-
-// the heroes return is for testing purposes

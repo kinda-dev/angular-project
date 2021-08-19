@@ -32,7 +32,6 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    // note to self: chek the line below !!!
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([HeroEffetcs]),
     StoreRouterConnectingModule.forRoot({stateKey: 'router'}),

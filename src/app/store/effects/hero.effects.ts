@@ -42,7 +42,6 @@ export class HeroEffetcs {
         )
     ))
     constructor(
-        private _heroService: HeroService,
         private _actions$: Actions,
         private _store: Store<IAppState>,
         private http:HttpClient,
