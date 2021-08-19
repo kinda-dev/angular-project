@@ -34,6 +34,7 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit(): void {
     this._store.dispatch(new GetHeroes());
+    console.log('STORE', this._store)
     this.isFetching = false;
   }
 
