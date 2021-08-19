@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../../services/hero.service';
-import { Store, select, State } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 
-import { HEROOBJ, Result } from 'src/app/interfaces/Hero';
 import { IAppState } from 'src/app/store/state/app.state';
-import { selectHeroes } from 'src/app/store/selectors/hero.selector';
 import { GetHeroes } from 'src/app/store/actions/heroes.actions';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -16,7 +14,6 @@ import { tap } from 'rxjs/operators';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes: HEROOBJ[] = [];
   showPrev: boolean = false;
   isFetching: boolean = true;
   heroes$: Observable<any> = this.heroService.heroes$
@@ -24,18 +21,21 @@ export class HeroesComponent implements OnInit {
   //   tap(data => console.log('what this', data))
   // );
 
-  
+  offset$: Observable<any> = this.heroService.offset$
+  pageNumber: Number = 1;
 
-  
+
+
   constructor(
     private heroService: HeroService,
     private _store: Store<IAppState>
-    ) {}
+  ) { }
 
   ngOnInit(): void {
     this._store.dispatch(new GetHeroes());
     console.log('STORE', this._store)
     this.isFetching = false;
+    console.log('Offset from heroes component', this.offset$)
   }
 
   testFunc(): void {
