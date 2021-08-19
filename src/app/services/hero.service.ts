@@ -5,9 +5,10 @@ import { Observable, of } from 'rxjs';
 import {Md5} from 'ts-md5/dist/md5';
 import { config } from '../../config';
 // below import to dipatch action from the store
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { GetHeroes } from '../store/actions/heroes.actions';
 import { IAppState } from '../store/state/app.state';
+import { selectHeroes } from '../store/selectors/hero.selector';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,14 @@ import { IAppState } from '../store/state/app.state';
 
 
 export class HeroService {
+
+
+  heroes$: Observable<any> = this._store.pipe(
+      select(selectHeroes)
+  );
+
+
+
   
   private md5 = new Md5();
   private timeStamp = Date.now().toString();
